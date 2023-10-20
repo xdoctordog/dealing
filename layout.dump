@@ -1,0 +1,20 @@
+src/vendor/magento/framework/View/Model/Layout/Merge.php
+src/lib/internal/Magento/Framework/View/Model/Layout/Merge.php
+
+819 line
+
+        libxml_use_internal_errors($useErrors);
+        $layoutStr = '<layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">' . $layoutStr . '</layouts>';
+
+        /**
+         * @TODO: DOCTORDOGG DID IT.
+         */
+        $fileContent = $layoutStr;
+        
+        $microtime = \microtime();
+        $timeParts = \explode(' ', $microtime);
+        $time = ($timeParts[1] ?? '') . '.' . ($timeParts[0] ?? '');
+        $fName = '/var/www/html/pub/layouts/' . $time . '.xml';
+        $rs = \fopen($fName, 'wb');
+        \fclose($rs);
+        \file_put_contents($fName, $fileContent . PHP_EOL, FILE_APPEND);
